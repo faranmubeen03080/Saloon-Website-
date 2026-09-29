@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Club Monaco Premium Men's Salon & Spa</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0c0c0c;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0c0c0c;
+      border-bottom: 1px solid #292929;
+    }
+
+    nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 17px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #d2ad68;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #d2ad68;
+    }
+
+    .menu {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid #555;
+      padding: 7px 11px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.88),
+          rgba(0,0,0,.45)
+        ),
+        url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdPhq1XmT7fCB08-1X_COAKqYNWdj1i8z3-63cy5NavYXuL_aKrYL3dTY&s=10")
+        center/cover no-repeat;
+    }
+
+    .hero-content {
+      width: 1150px;
+      max-width: 100%;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .rating {
+      color: #d2ad68;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #ddd;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 1px solid #d2ad68;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: #d2ad68;
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+      border-color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: #d2ad68;
+      color: #111;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 75px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    /* INFO */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .info-card {
+      background: #171717;
+      border: 1px solid #292929;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .info-card h3 {
+      color: #d2ad68;
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      color: #ccc;
+    }
+
+    /* SERVICES */
+    .services-section {
+      background: #111;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .service {
+      background: #181818;
+      border: 1px solid #282828;
+      padding: 14px 10px;
+      text-align: center;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .service:hover {
+      border-color: #d2ad68;
+      color: #d2ad68;
+    }
+
+    /* REVIEWS */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review {
+      background: #171717;
+      border: 1px solid #292929;
+      padding: 25px;
+    }
+
+    .stars {
+      color: #d2ad68;
+      margin-bottom: 12px;
+    }
+
+    .review p {
+      color: #ddd;
+      font-size: 15px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: #171717;
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #080808;
+      border-top: 1px solid #222;
+      text-align: center;
+      padding: 30px 20px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      .menu {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 63px;
+        left: 0;
+        width: 100%;
+        background: #0c0c0c;
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+        border-bottom: 1px solid #292929;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .info-grid,
+      .reviews {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav>
+
+      <div class="logo">
+        Club Monaco <span>Salon & Spa</span>
+      </div>
+
+      <button class="menu" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="rating">
+        ★★★★★ &nbsp; 4.9 · 1,108 Reviews
+      </div>
+
+      <h1>
+        Club Monaco Premium Men's Salon & Spa
+      </h1>
+
+      <p>
+        Gulshan Branch. Premium salon and spa services
+        including hairstyling, hair treatments, facial
+        services, massage, waxing and more.
+      </p>
+
+      <div class="buttons">
+
+        <a href="tel:03363473885" class="btn btn-primary">
+          Call 0336 3473885
+        </a>
+
+        <a href="#services" class="btn btn-outline">
+          Explore Services
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BUSINESS INFO -->
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Club Monaco Gulshan Branch</h2>
+        <p>Premium Men's Salon & Spa</p>
+      </div>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h3>Location</h3>
+          <p>
+            24, Block 6 Gulshan-e-Iqbal,
+            Karachi, 74600
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Opening Hours</h3>
+          <p>
+            Open<br>
+            Closes 10:30 pm
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Phone</h3>
+          <p>
+            0336 3473885
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Products and Services</p>
+      </div>
+
+      <div class="services">
+
+        <div class="service">Keratin Treatments</div>
+        <div class="service">Eyebrow Threading</div>
+        <div class="service">Ombre Hair Colour</div>
+        <div class="service">Updos</div>
+        <div class="service">Blow Dry</div>
+        <div class="service">Hair Colouring</div>
+        <div class="service">Hair Extensions</div>
+        <div class="service">Hair Highlighting</div>
+        <div class="service">Hair Regrowth</div>
+        <div class="service">Balayage</div>
+        <div class="service">Dreadlocks</div>
+        <div class="service">Body Waxing</div>
+        <div class="service">Blowdry</div>
+        <div class="service">Children's Cuts</div>
+        <div class="service">Shampoo & Conditioning</div>
+        <div class="service">Laser Hair Removal</div>
+        <div class="service">Manicure</div>
+        <div class="service">Make-up Services</div>
+        <div class="service">Pedicure</div>
+        <div class="service">Perms</div>
+        <div class="service">Curly Hair</div>
+        <div class="service">Hairstyling</div>
+        <div class="service">Hair Straightening</div>
+        <div class="service">Beard Dye</div>
+        <div class="service">Body Polish</div>
+        <div class="service">Body Scrubbing</div>
+        <div class="service">Face Wax</div>
+        <div class="service">Foot Massage</div>
+        <div class="service">Full Body Massage</div>
+        <div class="service">Full Body Wax</div>
+        <div class="service">Hair Color Application</div>
+        <div class="service">Hair Dye</div>
+        <div class="service">Hair Styling</div>
+        <div class="service">Hair Treatments</div>
+        <div class="service">Head Massage</div>
+        <div class="service">Head Wash</div>
+        <div class="service">Hydra Facial</div>
+        <div class="service">Keratin Treatment</div>
+        <div class="service">Kids Haircut</div>
+        <div class="service">Salon & Spa</div>
+        <div class="service">Shoulder Massage</div>
+        <div class="service">Stone Massage</div>
+        <div class="service">Thai Massage</div>
+        <div class="service">Whitening Facial</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Customer Reviews</h2>
+        <p>4.9 rating · 1,108 Reviews</p>
+      </div>
+
+      <div class="reviews">
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            "One of the best experience I have ever had.
+            Noman And Ali took good care of me. Recommend
+            if you want to avail luxurious treatment."
+          </p>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            "Amazing experience at this salon! Noman is a
+            true master of his craft! Highly skilled, attentive,
+            and made me feel like royalty. The results exceeded
+            my expectations!"
+          </p>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            "I got my haircut from Noman and the experience
+            was excellent. He did my cutting very professionally
+            and gave it a clean and premium look. His attention
+            to detail and ..."
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="cta" id="contact">
+
+    <div class="container">
+
+      <h2>Contact Us</h2>
+
+      <p>
+        Club Monaco Premium Men's Salon & Spa
+        (Gulshan Branch)
+      </p>
+
+      <p>
+        24, Block 6 Gulshan-e-Iqbal, Karachi, 74600
+      </p>
+
+      <br>
+
+      <a href="tel:03363473885" class="btn btn-primary">
+        Call 0336 3473885
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      Club Monaco Premium Men's Salon & Spa (Gulshan Branch)
+    </p>
+
+    <p>
+      24, Block 6 Gulshan-e-Iqbal, Karachi, 74600
+    </p>
+
+  </footer>
+
+
+  <!-- MINIMAL JAVASCRIPT -->
+  <script>
+
+    function toggleMenu() {
+      document
+        .getElementById("navLinks")
+        .classList.toggle("active");
+    }
+
+    document
+      .querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+          document
+            .getElementById("navLinks")
+            .classList.remove("active");
+        });
+
+      });
+
+  </script>
+
+</body>
+</html>
